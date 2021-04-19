@@ -1,0 +1,48 @@
+<project>
+
+    <target name="all" depends="clean, all-no-test, all-test"/>
+    
+    <target name="all-no-test" depends="compile, jar, run"/>
+    
+    <target name="all-test" depends="compile-test, run-test"/>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac includeantruntime="false" srcdir="src/main/java/simple/" destdir="build/classes"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/App.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="simple.App"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/App.jar" fork="true"/>
+    </target>
+
+    <target name="compile-test" depends="jar">
+        <mkdir dir="build/test-classes"/>
+        <javac includeantruntime="false" srcdir="src/main/java/simple/" destdir="build/test-classes"/>
+        <javac includeantruntime="false" classpath="lib/junit-4.13.2.jar" srcdir="src/test/java/simple/" destdir="build/test-classes"/>
+    </target>
+
+    <target name="run-test" depends="compile-test">
+        <junit>
+            <classpath location="lib/junit-4.13.2.jar"/>
+            <classpath location="lib/hamcrest-all-1.3.jar"/>
+            <classpath location="build/test-classes/"/>
+            <classpath location="build/classes/"/>
+            <formatter type = "brief" usefile = "false" />
+            <test name="simple.AppTest"/>
+        </junit>
+    </target>
+    
+</project>
