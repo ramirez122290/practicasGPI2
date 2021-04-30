@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1618857279221" clover="4.4.1">
+   <project name="simple simple" timestamp="1618857262959">
+      <metrics coveredelements="2" complexity="2" loc="17" methods="2" classes="1" statements="2" packages="1" coveredconditionals="0" coveredmethods="1" elements="4" ncloc="11" files="1" conditionals="0" coveredstatements="1"/>
+      <package name="simple">
+         <metrics coveredelements="2" complexity="2" loc="17" methods="2" classes="1" statements="2" coveredconditionals="0" coveredmethods="1" elements="4" ncloc="11" files="1" conditionals="0" coveredstatements="1"/>
+         <file path="/home/alumno/Escritorio/practicasGPI2/Practicas 3 y 4/simple/src/main/java/simple/App.java" name="App.java">
+            <metrics coveredelements="2" coveredconditionals="0" complexity="2" loc="17" coveredmethods="1" methods="2" elements="4" classes="1" ncloc="11" statements="2" conditionals="0" coveredstatements="1"/>
+            <class name="App">
+               <metrics coveredelements="2" coveredconditionals="0" complexity="2" coveredmethods="1" methods="2" elements="4" statements="2" conditionals="0" coveredstatements="1"/>
+            </class>
+            <line complexity="1" visibility="public" signature="main(String[]) : void" num="9" count="0" type="method"/>
+            <line num="11" count="0" type="stmt"/>
+            <line complexity="1" visibility="public" signature="print() : void" num="14" count="1" type="method"/>
+            <line num="15" count="1" type="stmt"/>
+         </file>
+      </package>
+   </project>
+   <testproject name="simple simple" timestamp="1618857262959">
+      <metrics coveredelements="11" complexity="2" loc="35" methods="2" classes="1" statements="9" packages="1" coveredconditionals="0" coveredmethods="2" elements="11" ncloc="24" files="1" conditionals="0" coveredstatements="9"/>
+      <package name="simple">
+         <metrics coveredelements="11" complexity="2" loc="35" methods="2" classes="1" statements="9" coveredconditionals="0" coveredmethods="2" elements="11" ncloc="24" files="1" conditionals="0" coveredstatements="9"/>
+         <file path="/home/alumno/Escritorio/practicasGPI2/Practicas 3 y 4/simple/src/test/java/simple/AppTest.java" name="AppTest.java">
+            <metrics coveredelements="11" coveredconditionals="0" complexity="2" loc="35" coveredmethods="2" methods="2" elements="11" classes="1" ncloc="24" statements="9" conditionals="0" coveredstatements="9"/>
+            <class name="AppTest">
+               <metrics coveredelements="11" complexity="2" methods="2" testruns="2" statements="9" coveredconditionals="0" coveredmethods="2" elements="11" testfailures="0" testduration="0.019" conditionals="0" coveredstatements="9" testpasses="2"/>
+            </class>
+            <line complexity="1" visibility="public" signature="shouldAnswerWithTrue() : void" num="15" testsuccess="true" count="1" testduration="0.015" type="method"/>
+            <line num="17" count="1" type="stmt"/>
+            <line complexity="1" visibility="public" signature="stringOutputTest() : void" num="20" testsuccess="true" count="1" testduration="0.004" type="method"/>
+            <line num="23" count="1" type="stmt"/>
+            <line num="24" count="1" type="stmt"/>
+            <line num="25" count="1" type="stmt"/>
+            <line num="27" count="1" type="stmt"/>
+            <line num="28" count="1" type="stmt"/>
+            <line num="29" count="1" type="stmt"/>
+            <line num="31" count="1" type="stmt"/>
+            <line num="33" count="1" type="stmt"/>
+         </file>
+      </package>
+   </testproject>
+</coverage>
