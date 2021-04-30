@@ -1,0 +1,78 @@
+
+pipeline {
+	agent{label 'master'} 
+	stages{
+		stage('Git'){
+			steps{
+				git url: 'https://github.com/ramirez122290/practicasGPI2.git'
+			}
+		}
+		
+		stage('Android'){ 
+			steps{
+				echo 'Iniciando compilacion de android'
+				dir('Practica2/ActivityA122290'){
+					sh './gradlew assemble'
+				}
+				echo 'Done'
+			}
+			post {
+			    success {
+			        archiveArtifacts 'Practica2/ActivityA122290/app/build/outputs/apk/release/*.apk'
+			    }
+			}
+		} 
+		
+		stage('Arduino'){ 
+			steps{
+				echo 'Iniciando compilacion de arduino'
+				dir('Practica2/Bare-Arduino-Project/src/FooProject'){
+					sh 'make -f Makefile-Linux.mk'
+				}
+				echo 'Done'
+			}
+			post {
+			    success {
+			        archiveArtifacts 'Practica2/Bare-Arduino-Project/lib/FooLib/*'
+			    }
+			}
+		} 
+		
+		stage('Simple-ant'){ 
+			steps{
+				echo 'Iniciando compilacion de simple'
+				dir('Practicas3y4/simple'){
+					sh 'ant compile'
+                    sh 'ant jar'
+				}
+				echo 'Lanzando tests de simple'
+				dir('Practicas3y4/simple'){
+					sh 'ant all-test'
+				}
+				echo 'Done'
+			}
+			post {
+			    success {
+			        archiveArtifacts 'Practicas3y4/simple/build/jar/*.jar'
+			    }
+			}
+		} 
+		
+		stage('Simple-maven'){ 
+			steps{
+				echo 'Iniciando compilacion de simple'
+				dir('Practicas3y4/simple'){
+					sh 'mvn package'
+					sh 'mvn test'
+				}
+				echo 'Done'
+			}
+			post {
+			    success {
+			        archiveArtifacts 'Practicas3y4/simple/target/classes/simple/App.class'
+			    }
+			}
+		} 
+
+	}
+}
